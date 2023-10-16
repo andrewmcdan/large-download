@@ -1,3 +1,5 @@
+// TODO: 
+// 1. add ability to set callback for progress
 'use strict';
 const fs = require('fs');
 const got = require('got');
