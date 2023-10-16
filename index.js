@@ -42,6 +42,9 @@ class LargeDownload {
         this.retries = opts.hasOwnProperty('retries') ? opts.retries : 1;
         this.httpOptions = Object.assign({ retries: 0 }, opts.httpOptions);
         this.onRetry = opts.onRetry;
+        if(opts.onData !== undefined && typeof opts.onData === 'function') {
+            this.onData = opts.onData;
+        }
         this.minSizeToShowProgress = opts.minSizeToShowProgress || 0;
     }
 
@@ -132,6 +135,7 @@ class LargeDownload {
 
                         downloadedSize += len;
                         doShowProgressBar && bar.tick(len);
+                        this.onData(downloadedSize, declaredSize);
                     });
                 });
 
