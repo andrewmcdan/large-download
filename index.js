@@ -117,6 +117,7 @@ class LargeDownload {
 
                 readable.on('response', res => {
                     declaredSize = parseInt(res.headers['content-length'], 10);
+                    let declaredSizeString = res.headers['content-length'];
 
                     // "progress" module actually checks for redirected output, but still prints empty newlines
                     const doShowProgressBar = process.stdout.isTTY && declaredSize > _this.minSizeToShowProgress;
@@ -135,7 +136,7 @@ class LargeDownload {
 
                         downloadedSize += len;
                         doShowProgressBar && bar.tick(len);
-                        if(this.onData !== null && this.onData !== undefined && typeof this.onData === 'function') this.onData(downloadedSize, declaredSize);
+                        if(_this.onData !== null && _this.onData !== undefined && typeof _this.onData === 'function') _this.onData(downloadedSize, declaredSizeString);
                     });
                 });
 
