@@ -135,7 +135,7 @@ class LargeDownload {
 
                         downloadedSize += len;
                         doShowProgressBar && bar.tick(len);
-                        this.onData(downloadedSize, declaredSize);
+                        if(this.onData !== null && this.onData !== undefined && typeof this.onData === 'function') this.onData(downloadedSize, declaredSize);
                     });
                 });
 
