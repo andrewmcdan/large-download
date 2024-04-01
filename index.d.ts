@@ -1,9 +1,8 @@
-interface HTTPOptions {
+export interface HTTPOptions {
     retries?: number;
-    // Additional properties from 'got' can be added here as needed.
 }
 
-interface LargeDownloadOptions {
+export interface LargeDownloadOptions {
     link: string;
     destination: string;
     timeout?: number;
@@ -14,11 +13,11 @@ interface LargeDownloadOptions {
     minSizeToShowProgress?: number;
 }
 
-class LargeDownload {
+export class LargeDownload {
     constructor(opts: LargeDownloadOptions);
     load(): Promise<void>;
 }
 
 declare module 'large-download' {
-    export { LargeDownload, LargeDownloadOptions, HTTPOptions };
+    export { LargeDownload };
 }
