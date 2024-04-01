@@ -152,4 +152,4 @@ class LargeDownload {
     }
 }
 
-// module.exports = LargeDownload;
+export default LargeDownload;
