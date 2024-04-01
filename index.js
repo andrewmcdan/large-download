@@ -1,4 +1,4 @@
-// TODO: 
+// TODO:
 // 1. add ability to set callback for progress
 'use strict';
 const fs = require('fs');
@@ -21,18 +21,18 @@ class LargeDownload {
      * @property {Number} [timeout] timeout in milliseconds for the download
      * @property {Number} [retries=1] max retries for the whole operation
      * @property {HTTPOptions} [httpOptions]
-     * @property {Function} [onRetry] will be called for each retry occured with an Error as the only argument
-     * @property {Number} [minSizeToShowProgress=0] minumum file size in bytes to show progress bar
+     * @property {Function} [onRetry] will be called for each retry occurred with an Error as the only argument
+     * @property {Number} [minSizeToShowProgress=0] minimum file size in bytes to show progress bar
      */
 
     /**
      * @param {LargeDownloadOptions} opts
      */
     constructor(opts) {
-        if ( ! opts.link) {
+        if (! opts.link) {
             throw new Error('Download link is not provided');
         }
-        if ( ! opts.destination) {
+        if (! opts.destination) {
             throw new Error('Destination is not provided');
         }
 
@@ -42,7 +42,7 @@ class LargeDownload {
         this.retries = opts.hasOwnProperty('retries') ? opts.retries : 1;
         this.httpOptions = Object.assign({ retries: 0 }, opts.httpOptions);
         this.onRetry = opts.onRetry;
-        if(opts.onData !== undefined && typeof opts.onData === 'function') {
+        if (opts.onData !== undefined && typeof opts.onData === 'function') {
             this.onData = opts.onData;
         }
         this.minSizeToShowProgress = opts.minSizeToShowProgress || 0;
@@ -136,7 +136,9 @@ class LargeDownload {
 
                         downloadedSize += len;
                         doShowProgressBar && bar.tick(len);
-                        if(_this.onData !== null && _this.onData !== undefined && typeof _this.onData === 'function') _this.onData(downloadedSize, declaredSizeString);
+                        if (_this.onData !== null && _this.onData !== undefined && typeof _this.onData === 'function') {
+                            _this.onData(downloadedSize, declaredSizeString);
+                        }
                     });
                 });
 

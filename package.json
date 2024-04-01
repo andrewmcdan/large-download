@@ -39,6 +39,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^3.0.x",
     "proxyquire": "^1.8.x",
-    "sinon": "^3.2.x"
+    "sinon": "^3.2.x",
+    "typescript": "^5.4.3"
   }
 }
