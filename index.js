@@ -152,4 +152,4 @@ class LargeDownload {
     }
 }
 
-export default LargeDownload;
+export default { LargeDownload };
