@@ -6,6 +6,7 @@ module.exports = {
         'comma-dangle': [ 'error', { objects: 'always-multiline' } ],
         'object-curly-spacing': [ 'error', 'always' ],
         'space-in-parens': 0,
-        'space-unary-ops': [ 2, { overrides: { '!': true } } ]
+        'space-unary-ops': [ 2, { overrides: { '!': true } } ],
+        'linebreak-style': 0,
     }
 };
